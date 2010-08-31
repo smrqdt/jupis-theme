@@ -1,0 +1,226 @@
+/* $Id: style.css,v 1.1.2.10 2010/04/07 08:42:22 jmburnz Exp $ */
+
+/**
+ * @file style.css
+ *
+ * Use this file to override the Genesis core modular styles 
+ * (such as the HTML elements in typography.css), module CSS 
+ * and other Drupal styles. Anything that doesn't fit logically
+ * into page.css, nodes.css, blocks.css or comments.css can go here.
+ */
+
+/**********************************************************
+ *                    Body
+ **********************************************************/
+body {
+	font-size: 12pt;
+	font-family: LiberationSans, Verdana, sans-serif;
+	/*color:#55524E;*/
+	color:#3c3c3c;
+	background: url(files/images/header.png) top left no-repeat, url(files/images/footer.png) bottom left no-repeat !important;
+	background-color: #FFFFFF;
+	min-width: 900px;
+	width: 100%;
+	padding: 0px;
+	margin: 0px;
+	
+
+}
+
+
+/**********************************************************
+ *                 HTML Elements
+ **********************************************************/
+h1, h2, h3, h4, h5, h6 {
+	font-family: LiberationSans, Verdana, sans-serif;
+	font-weight: bold;
+	font-style: normal;
+	line-height: 130%;
+}
+
+h1 {
+	font-size: 170%;
+}
+
+h1:hover {
+	text-decoration: underline;
+}
+
+h2 {
+	font-size: 150%;
+}
+
+h3 {
+	font-size: 130%;
+}
+
+h4 {
+	font-size: 120%;
+}
+
+h5 {
+	font-size: 110%;
+}
+
+h6 {
+	font-size: 100%;
+	font-style: italic;
+}
+
+
+p {}
+
+strong {}
+em, dfn {}
+dfn {}
+
+sup, sub {}
+
+del {}
+ins {}
+
+blockquote {}
+cite {}
+q {}
+
+address {}
+
+ul {}
+ol {}
+li {}
+
+dl {}
+dd {}
+dt {}
+
+
+abbr {}
+acronym {}
+
+pre, code, tt {}
+p code {}
+samp {}
+kbd {}
+var {}
+
+
+/**********************************************************
+ *                 Global Link Styles
+ **********************************************************/
+a {
+  margin: 0; 
+  padding: 0;
+  color: #3c3c3c;
+}
+
+a:link    {}
+a:visited {
+	color:#787878;
+	
+}
+a:hover   {
+	color:#FF8800;
+}
+a:active  {}
+a.active  {}
+
+/* Set global a:active and a:focus styles. */
+a:active,
+a:focus {
+  color: #C00000;
+  border: 0;
+}
+
+/* Drupal sets this to black. */
+li a.active {}
+
+/* Remove borders on linked images. */
+a img {
+  border: none;
+}
+
+
+/**********************************************************
+ *                 Accessibility Classes
+ **********************************************************/
+
+/* Hide content without positioning issues. */
+.invisible {
+  height: 0;
+  overflow: hidden;
+  position: absolute;
+}
+
+/* Move content off screen where appropriate. */
+.offscreen {
+  position: absolute;
+  left: -999em;
+  top: auto;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+}
+
+
+/**********************************************************
+ *                 Custom Styles
+ **********************************************************/
+/**
+ * Here you can add custom stles for your theme that do not fit
+ * into one if the modular stylesheets (such as the nodes, blocks,
+ * page and comments stylesheets).
+ */
+
+@font-face {
+	font-family: LiberationSans;
+	font-style: normal;
+	font-weight: normal;
+	src: url(files/LiberationSans-Regular.ttf) format("truetype");
+}
+
+@font-face {
+	font-family: LiberationSans;
+	font-style: normal;
+	font-weight: bold;
+	src: url(files/LiberationSans-Bold.ttf) format("truetype");
+}
+
+@font-face {
+	font-family: LiberationSans;
+	font-style: italic;
+	font-weight: normal;
+	src: url(files/LiberationSans-Italic.ttf) format("truetype");
+}
+
+@font-face {
+	font-family: LiberationSans;
+	font-style: italic;
+	font-weight: bold;
+	src: url(files/LiberationSans-BoldItalic.ttf) format("truetype");
+}
+
+@font-face {
+	font-family: LiberationSansBold;
+	font-style: normal;
+	font-weight: normal;
+	src: url(files/LiberationSans-Bold.ttf) format("truetype");
+}
+
+@font-face {
+	font-family: LeagueGothic;
+	font-style: normal;
+	font-weight: bold;
+	src: url(files/league-gothic.otf) format("opentype");
+}
+
+
+
+q {
+	quotes:"„" "“" "‚" "‘";
+}
+div#all {
+	max-width: 1100px;
+	margin: 0 auto;
+	padding: 0 10px;
+	left: 230px;
+}
