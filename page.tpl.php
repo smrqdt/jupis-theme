@@ -1,26 +1,87 @@
-!obby
-session version="0.4.7"
- user_table
-  user colour="dcfdbe" id="1" name="SimonimNetz"
-  user colour="fdf3be" id="2" name="macode"
- chat
-  system_message text="SimonimNetz hat die Sitzung betreten" timestamp="1285449801"
-  system_message text="macode hat die Sitzung betreten" timestamp="1285449833"
-  system_message text="SimonimNetz has created a new document: block.tpl.php" timestamp="1285451266"
-  system_message text="SimonimNetz has created a new document: comment.tpl.php" timestamp="1285451266"
-  system_message text="SimonimNetz has created a new document: node.tpl.php" timestamp="1285451267"
-  system_message text="SimonimNetz has created a new document: page.tpl.php" timestamp="1285451267"
-  system_message text="macode has created a new document: jupis.info" timestamp="1285453474"
-  system_message text="macode has created a new document: style.css" timestamp="1285454544"
- document encoding="UTF-8" id="1" owner="1" suffix="1" title="block.tpl.php"
-  chunk author="0" content="<div class=\"block-inner\"><div class=\"block block-<?php print $block->module; ?>\" id=\"block-<?php print $block->module; ?>-<?php print $block->delta; ?>\">\n\t<?php if ($block->subject) { ?><h2 class=\"title\"><?php print $block->subject; ?></h2><?php } ?>\n\t<div class=\"content\"><?php print $block->content; ?>\n\n\n</div>\n</div>\n</div>\n\n"
- document encoding="UTF-8" id="2" owner="1" suffix="1" title="comment.tpl.php"
-  chunk author="0" content="<div class=\"comment<?php if (isset($comment->status) && $comment->status == COMMENT_NOT_PUBLISHED) print ' comment-unpublished'; ?>\">\n\t<?php if ($picture) print $picture; ?>\n\t<h3 class=\"title\"><?php print $title; ?></h3><?php if ($new != '') { ?><span class=\"new\"><?php print $new; ?></span><?php } ?>\n\t<div class=\"submitted\"><?php print $submitted; ?></div>\n\t<div class=\"content\"><?php print $content; ?></div>\n\t<?php if ($signature) { ?><div class=\"signature\">\n  \t<?php print $signature ?>\n\t</div><?php } ?>\n\t<div class=\"links\">&raquo; <?php print $links; ?></div>\n</div>"
- document encoding="UTF-8" id="3" owner="1" suffix="1" title="node.tpl.php"
-  chunk author="0" content="<div class=\"node<?php if ($sticky) { print \" sticky\"; } ?><?php if (!$status) { print \" node-unpublished\"; } ?>\">\n\t<?php if ($picture) print $picture; ?>\n  <?php if ($page == 0) { ?><h2 class=\"title\"><a href=\"<?php print $node_url?>\"><?php print $title?></a></h2><?php }; ?>\n  <?php if ($submitted) { ?><span class=\"submitted\"><?php print $submitted ?></span><?php } ?>\n  <?php if ($terms) { ?><div class=\"taxonomy\"><?php print $terms ?></div><?php } ?>\n  <div class=\"content\"><?php print $content ?></div>\n  <?php if ($links) { ?><div class=\"links\">&raquo; <?php print $links?></div><?php }; ?>\n</div>"
- document encoding="UTF-8" id="4" owner="1" suffix="1" title="page.tpl.php"
-  chunk author="0" content="<!DOCTYPE html PUBLIC \"-//W3C//DTD XHTML 1.0 Strict//EN\" \"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd\">\n<html xmlns=\"http://www.w3.org/1999/xhtml\" lang=\"<?php print $language->language ?>\" xml:lang=\"<?php print $language->language ?>\">\n<head>\n<title><?php print $head_title ?></title>\n<?php print $head ?>\n<?php print $styles ?>\n<?php print $scripts ?>\n</head>\n<body class=\"<?php print $body_classes; ?>\">\n<div id=\"background\"><div id=\"pageWrap\">\n\t<div id=\"header2\">\n<div id=\"header\">\n\t\t<?php if ($logo) { ?><a href=\"<?php print $front_page ?>\" title=\"<?php print $site_name.'-'.t('Home') ?>\"><img src=\"<?php print $logo ?>\" alt=\"<?php print $site_name.'-'.t('Home') ?>\" /></a><?php } ?>\t\t\t\n\n<?php if ($site_name) { ?><h1 class=\"site-name\"><a href=\"<?php print $front_page ?>\" title=\"<?php print $site_name ?>\"><?php print $site_name ?></a></h1><?php } ?>\n\t\t\t\t\t\n\t\t\n\t\t</div>\n\t</div>\n\n\n<div id=\"linksprimary\">\n\n  <div class=\"container clearfix\">\n<?php if ($primary_links): ?>\n          <?php print theme('links', $primary_links, $attributes = array('id' => 'lavaLampBorderOnly')); ?>\n      <?php endif; ?>\n</div> \n</div><div><div id=\"schatten\"></div>\n\n\t<div id=\"outerColumn\">\n\t\t<div id=\"innerColumn\">\n\t\t\t<div id=\"soContainer\">\n\t\t\t\t<div id=\"content\">\n\t\t\t\t\t<div class=\"inside\">\n\t\t\t\t\t\t<?php if ($mission) { ?><div class=\"mission\"><?php print $mission ?></div><?php } ?>\n\t\t\t\t\t\t<?php if ($header) { ?><div class=\"intro\"><?php print $header ?></div><?php } ?>\n\t\t\t\t\t\t<?php print $breadcrumb ?>\n\t\t\t\t\t\t<?php if ($tabs) { ?><div class=\"tabs\"><?php print $tabs ?></div><?php } ?>\n\t\t\t\t\t\t<?php if ($title) { ?><h2 class=\"title\"><?php print $title ?></h2><div id=\"h1bottom\"></div><?php } ?>\n\n\t\t\t\t\t\t<?php print $help ?>\n\t\t\t\t\t\t<?php if ($show_messages) { print $messages; } ?>\n\t\t\t\t\t\t<?php print $content; ?>\n\t\t\t\t\t\t\n\t\t\t\t\t\n\t\t\t\t</div></div>\n<!-- <?php if ($search_box) { ?><div class=\"header_right\">\n\t\t\t\t<div class=\"search\">\n\t\t\t\t\t<?php print $search_box ?>\n\t\t\t\t</div></div>\n\t\t\t\t\n\t\t\t<?php } ?> -->\n\t\t\t\t<?php if ($left) { ?><div id=\"leftCol\">\n\t\t\t\t\t<div class=\"inside\">\n\t\t\t\n\t\t\t\n<?php print $left ?>\n\t\t\t\t\t\n</div>\n\t\t\t\t</div><?php } ?>\n\t\t\t\t\n\t\t\t</div>\n\t\t\t<?php if ($right) { ?><div id=\"rightCol\">\n\t\t\t\t<div class=\"inside\">\n\t\t\t\t\t<?php print $right ?>\n\t\t\t\t</div>\n\t\t\t</div><?php } ?>\n\t\t</div>\n\t\t<div class=\"clr\"></div>\n\t</div>\n\t<div id=\"footer\">\n\t\t<div class=\"inside\">\n\t\t\t<?php if ($footer_message || $footer) { ?><div class=\"footer_left\">\n\t\t\t\t<?php print $footer_message ?>\n\t\t\t\t<?php print $footer ?>\n\t\t\t</div><?php } ?>\n\t\t\t<div class=\"footer_right\">\n\t\t\t\t<div class=\"designed\">designed by <a href=\"http://www.reizkraft.com\">Reizkraft.com</a></div>\n\t\t\t</div>\n\t\t\n\t\t\n\t</div>\n</div></div></div>\n<?php print $closure ?>\n</body>\n</html>"
- document encoding="UTF-8" id="1" owner="2" suffix="1" title="jupis.info"
-  chunk author="2" content="name = Junge Piraten\ncore = 6.X\nversion = 0.1 pre beta"
- document encoding="UTF-8" id="2" owner="2" suffix="1" title="style.css"
-  chunk author="1" content="@charset \"UTF-8\";\n\n/* layout.css mit html4 & legacy-background */\n\nbody {\n\tbackground: url(files/images/header.png) top left no-repeat;\n\tbackground-color: #FFFFFF;\n\tmin-width: 900px;\n\twidth: 100%;\n\tpadding: 0px;\n\tmargin: 0px;\n}\n\ndiv#footer-image {\n\twidth: 100%;\n\theight: 220px;\n\tmargin-top: -220px;\n\tborder: 0px;\n\tleft: 0px;\n\tbottom: 0px;\n\tbackground-image: url(files/images/footer.png);\n\tbackground-position: left bottom;\n\tbackground-repeat: no-repeat;\n\toverflow: visible;\n\tmargin-bottom: 0px;\n\tmargin-left: 0px;\n}\n\n#all {\n\tmax-width: 1100px;\n\tmargin: 0 auto;\n\tpadding: 0 10px;\n\tleft: 230px;\n}\n\n#header {\n\ttext-align: right; \n\theight: 180px;\n\tmargin-top: 0px;\n\tfont-weight: bold; \n\tfont-size: 110%;\n}\n\n#sidebar-left {\n\twidth: 200px;\n\tfloat: left;\n\tpadding-right: 10px;\n}\n#content { \n\tmargin: 0 210px;\n\tpadding: 0 10px;\n\tline-height: 150%;\n\tborder-left: 2px solid #ddd9d9;\n\tborder-right: 2px solid #ddd9d9;\n}\n#sidebar-right {\n\twidth:200px;\n\tfloat:right;\n\tpadding-left: 10px;\n}\n\n.sidebar {\n\toverflow: visible;\n}\n\n#nav-primaerlinks li {\n\tdisplay: inline;\n\tlist-style: none;\n}\n\n#nav-primaerlinks li + li::before {\n\tcontent:\"• \"; \n}\n\n#nav-footer {\n\tmargin-top: 190px;\n}\n\n#nav-footer li {\n\tdisplay: inline;\n\tlist-style: none;\n}\n\n#nav-footer li + li::before {\n\tcontent: \"• \"; \n}\n\n#nav-footer ul, #nav-primaerlinks ul {\n\tpadding-left: 0px;\n}\n\n#nav-footer a, #nav-primaerlinks a {\n\ttext-decoration: none;\n\tcolor: #55524E;\n}\n\n#nav-footer a:hover, #nav-primaerlinks a:hover {\n\ttext-decoration: underline;\n\tcolor: #55524E;\n}\n\n.metadata {\n\tcolor: #787878;\n\tfont-size: 80%;\n\tline-height: 100%;\n\tmargin: 2px 0;\n}\n\n#search-form input {\n\tdisplay: inline;\n}\n\n#search-form input:focus {\n\tborder-width: 2px;\n}\n\n#search-form-field {\n\theight: 20px;\n\twidth: 200px;\n\tborder-width: 1px;\n\tborder-style: solid;\n\tborder-color: #3c3c3c;\n\tpadding: 1px;\n}\n\n#search-form-button {\n\theight: 20px;\n\twidth: 25px;\n\tbackground-color: #FFFFFF;\n\tborder-width: 1px;\n\tborder-style: solid;\n\tborder-color: #3c3c3c;\n\tpadding: 2px 2px;\n\tvertical-align: middle;\n\ttext-align: center;\n}\n\n#search-form-button:hover {\n\tbackground-color: #FF8800;\n}\n\n#main-nav, #main-nav a:link, #main-nav a:visited {\n\tcolor: #3c3c3c;\n\ttext-decoration: none;\n}\n\n#main-nav a:hover {\n\ttext-decoration: underline;\n\tfont-weight: bold;\n}\n\n.comment-meta {\n\tcolor: #787878;\n\tfont-size: 80%;\n\tline-height: 100%;\n\tmargin: 2px 0;\n}\n\n.comment-meta > a:link {\n\tcolor: #787878;\n}\n\n.comment-meta > a:visited {\n\tcolor: #787878;\n}\n\n.comment-meta > a:hover {\n\tcolor: #3C3C3C;\n}\n\n.comment {\n\tmargin-bottom: 2ex;\n\tpadding: 0.5ex;\n}\n\n.comment-answers {\n\tpadding-left: 40px;\n\tpadding-top: 1ex;\n}\n\n.comment-content p {\n\tmargin: 0.7ex 0px;\n}\n\n.comments-spam-link {\n\tfont-size: 90%;\n\tfont-style: italic;\n}\n\n#comments-spam-hide {\n\tdisplay: none;\n}\n\n.comment-spam {\n\tbackground-color: #FFA8A8;\n\tdisplay:none;\n}\n\nhr {\n\tborder: 1px solid #ddd9d9;\n}\n\n#dates {\n\ttext-align: left;\n}\n\n#dates, .appointments {\n\tlist-style-type: none;\n\tdisplay: inline;\n\tpadding: 0px;\n}\n\n.appointments {\n\ttext-align: center;\n}\n\n#dates > li {\n\tfont-weight: bold;\n\tmargin: 0.5em 0;\n\tfont-size: 110%;\n}\n\n.appointments li {\n\tfont-weight: normal;\n\tfont-size: 80%;\n}\n\n.appointments li a:link, .appointments li a:visited {\n\tcolor: #3c3c3c;\n\ttext-decoration: none;\n}\n\n.appointments li a:hover {\n\ttext-decoration: underline;\n\tfont-weight: bold;\n}\n\n#comment-form label {\n\tdisplay: block;\n\tfont-weight: bold;\n\tfont-size: 70%;\n\tline-height: 120%;\n}\n\n#comment-form input {\n\tresize: horizontal;\n}\n\n#comment-form-content {\n\twidth: 500px;\n\tresize: both;\n}\n\n.comment-form-required {\n\tcolor: #FF8800;\n }\n\n.comment-form-advice {\n\tfont-size: 70%;\n\tmargin: 0px;\n}\n\n#comment-form input, #comment-form textarea {\n\tborder-style: solid;\n\tborder-color: #3C3C3C;\n\tborder-width: 1px;\n}\n\n#comment-form input:focus, #comment-form textarea:focus {\n\tborder-color: #FF8800;\n\tborder-width: 1px;\n}\n\n#comment-form-submit input {\n\tbackground-color: #FFFFFF;\n}\n\n#comment-form-submit input:hover {\n\tbackground-color: #FF8800;\n}\n\n.stoerer1 {\n\tcolor: #FF8800;\n\tfont-size: 180%;\n\tfont-weight: bold;\n\tline-height: 80%;\n\tfont-family: LeagueGothic;\n}\n\n.stoerer2 {\n\tcolor: #3C3C3C;\n\tfont-size: 140%;\n}\n\n.stoerer3 {\n\tfont-size: 170%;\n}\n\n\n/* style.css */\n\n@font-face {\n\tfont-family: LiberationSans;\n\tfont-style: normal;\n\tfont-weight: normal;\n\tsrc: url(files/LiberationSans-Regular.ttf) format(\"truetype\");\n}\n\n@font-face {\n\tfont-family: LiberationSans;\n\tfont-style: normal;\n\tfont-weight: bold;\n\tsrc: url(files/LiberationSans-Bold.ttf) format(\"truetype\");\n}\n\n@font-face {\n\tfont-family: LiberationSans;\n\tfont-style: italic;\n\tfont-weight: normal;\n\tsrc: url(files/LiberationSans-Italic.ttf) format(\"truetype\");\n}\n\n@font-face {\n\tfont-family: LiberationSans;\n\tfont-style: italic;\n\tfont-weight: bold;\n\tsrc: url(files/LiberationSans-BoldItalic.ttf) format(\"truetype\");\n}\n\n@font-face {\n\tfont-family: LiberationSansBold;\n\tfont-style: normal;\n\tfont-weight: normal;\n\tsrc: url(files/LiberationSans-Bold.ttf) format(\"truetype\");\n}\n\n@font-face {\n\tfont-family: LeagueGothic;\n\tfont-style: normal;\n\tfont-weight: bold;\n\tsrc: url(files/league-gothic.otf) format(\"opentype\");\n}\n\nbody {\n\tfont-size: 12pt;\n\tfont-family: LiberationSans, Verdana, sans-serif;\n\t/*color:#55524E;*/\n\tcolor:#3c3c3c;\n}\n\na:link {\n\t/*color:#55524E;*/\n\tcolor: #3c3c3c;\n}\na:visited {\n\tcolor:#787878;\n}\na:hover {\n\tcolor:#FF8800;\n}\n\nh1, h2, h3, h4, h5, h6 {\n\tfont-family: LiberationSans, Verdana, sans-serif;\n\tfont-weight: bold;\n\tfont-style: normal;\n\tline-height: 130%;\n}\n\nh1 {\n\tfont-size: 170%;\n}\n\nh1:hover {\n\ttext-decoration: underline;\n}\n\nh2 {\n\tfont-size: 160%;\n}\n\nh3 {\n\tfont-size: 140%;\n}\n\nh4 {\n\tfont-size: 120%;\n}\n\nh5 {\n\tfont-size: 110%;\n}\n\nh6 {\n\tfont-size: 100%;\n\tfont-style: italic;\n}\n\nem {\n\tfont-weight: bold;\n}\n\nstrong {\n\tfont-size: 150%;\n\tfont-weight: bold;\n}\n\ncite {\n\t\n}\n\nabbr, acronym {\n\t\n}\n\nq {\n\tquotes:\"„\" \"“\" \"‚\" \"‘\";\n}\n\nblockquote {\n\tmargin-left: 4ex;\n\tpadding: 0.5ex;\n\tbackground-color: \n}\n\ndel {\n\ttext-decoration: line-throught;\n}\n\nins {\n\tborder-bottom: 1px dotted black;\n\ttext-decoration: none;\n}\n\n/* legacy.css */\n\n/* FF 3.6.8 und Opera 10.60 behandeln die Elemente sonst als inline --Simon (09/08/2010I) */\narticle, aside, canvas, details, figcaption, figure, footer, header, hgroup, menu, nav, section, summary { \n\tdisplay:block;\n}\n\n\n/* FIXME: WebKit kann die CSS-Eigenschaft quotes nicht. */\n"
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="<?php print $language->language ?>" xml:lang="<?php print $language->language ?>">
+<head>
+<title><?php print $head_title ?></title>
+<?php print $head ?>
+<?php print $styles ?>
+<?php print $scripts ?>
+</head>
+<body class="<?php print $body_classes; ?>">
+<div id="background"><div id="pageWrap">
+	<div id="header2">
+<div id="header">
+		<?php if ($logo) { ?><a href="<?php print $front_page ?>" title="<?php print $site_name.'-'.t('Home') ?>"><img src="<?php print $logo ?>" alt="<?php print $site_name.'-'.t('Home') ?>" /></a><?php } ?>			
+
+<?php if ($site_name) { ?><h1 class="site-name"><a href="<?php print $front_page ?>" title="<?php print $site_name ?>"><?php print $site_name ?></a></h1><?php } ?>
+					
+		
+		</div>
+	</div>
+
+
+<div id="linksprimary">
+
+  <div class="container clearfix">
+<?php if ($primary_links): ?>
+          <?php print theme('links', $primary_links, $attributes = array('id' => 'lavaLampBorderOnly')); ?>
+      <?php endif; ?>
+</div> 
+</div><div><div id="schatten"></div>
+
+	<div id="outerColumn">
+		<div id="innerColumn">
+			<div id="soContainer">
+				<div id="content">
+					<div class="inside">
+						<?php if ($mission) { ?><div class="mission"><?php print $mission ?></div><?php } ?>
+						<?php if ($header) { ?><div class="intro"><?php print $header ?></div><?php } ?>
+						<?php print $breadcrumb ?>
+						<?php if ($tabs) { ?><div class="tabs"><?php print $tabs ?></div><?php } ?>
+						<?php if ($title) { ?><h2 class="title"><?php print $title ?></h2><div id="h1bottom"></div><?php } ?>
+
+						<?php print $help ?>
+						<?php if ($show_messages) { print $messages; } ?>
+						<?php print $content; ?>
+						
+					
+				</div></div>
+<!-- <?php if ($search_box) { ?><div class="header_right">
+				<div class="search">
+					<?php print $search_box ?>
+				</div></div>
+				
+			<?php } ?> -->
+				<?php if ($left) { ?><div id="leftCol">
+					<div class="inside">
+			
+			
+<?php print $left ?>
+					
+</div>
+				</div><?php } ?>
+				
+			</div>
+			<?php if ($right) { ?><div id="rightCol">
+				<div class="inside">
+					<?php print $right ?>
+				</div>
+			</div><?php } ?>
+		</div>
+		<div class="clr"></div>
+	</div>
+	<div id="footer">
+		<div class="inside">
+			<?php if ($footer_message || $footer) { ?><div class="footer_left">
+				<?php print $footer_message ?>
+				<?php print $footer ?>
+			</div><?php } ?>
+			<div class="footer_right">
+				<div class="designed">designed by <a href="http://www.reizkraft.com">Reizkraft.com</a></div>
+			</div>
+		
+		
+	</div>
+</div></div></div>
+<?php print $closure ?>
+</body>
+</html>
