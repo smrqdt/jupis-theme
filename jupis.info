@@ -1,3 +1,6 @@
 name = Junge Piraten
-core = 6.X
-version = 0.1 pre beta
+core = "6.x"
+version = "0.1 pre beta"
+stylesheets[all][] = style.css
+stylesheets[print][] = print.css
+
