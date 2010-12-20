@@ -78,11 +78,11 @@
 			<div class="footer_right">
 				<div class="designed">designed by <a href="http://www.reizkraft.com">Reizkraft.com</a></div>
 			</div>
-			<div id="footer-image">&#160;</div>
 
 		
 	</div>
 </div></div></div>
 <?php print $closure ?>
+<div id="footer-image">&#160;</div>
 </body>
 </html>
